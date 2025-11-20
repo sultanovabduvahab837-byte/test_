@@ -12,7 +12,7 @@ class TaskPagination(PageNumberPagination):
 
 class TaskListCreateView(generics.ListCreateAPIView):
     serializer_class = TaskSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
     pagination_class = TaskPagination
 
     def get_queryset(self):
@@ -30,4 +30,6 @@ class TaskListCreateView(generics.ListCreateAPIView):
 class TaskRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
+
+
